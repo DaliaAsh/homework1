@@ -1,11 +1,11 @@
-package dalia;
+package daliaTest;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 import source.Book;
 import source.ShoppingCart;
-public class MyTest2 {
+public class SecondTest {
 
 	@Test
 	public void test() {
