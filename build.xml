@@ -1,9 +1,9 @@
-<project  default = "compile">
+<project  default = "test">
  <property name = "src.java.dir" location = "./src/source"/>
- <property name = "src.test.dir" location = "./src/test"/>
+ <property name = "src.Test.dir" location = "./src/test"/>
  <property name = "result.dir" location = "./target"/>
  <property name = "result.javaclasses.dir" location = "${result.dir}/classes"/>
- <property name = "result.testclasses.dir" location = "${result.dir}/testclasses"/>
+ <property name = "result.Testclasses" location = "${result.dir}/testclasses"/>
  <property name = "result.jar.file" location = "./src.jar"/>
 
 <target name = "compile">
@@ -19,16 +19,16 @@
 </jar>
 </target>
 	<path id="NecessaryLibraries">
-	        <pathelement location="C:\Users\HP\eclipse-workspace\Hope\UsedLibraries\junit-4.12.jar"/>
+	        <pathelement location="./UsedLibraries/junit-4.12.jar"/>
 	        <!--matcher-->
-	        <pathelement location="C:\Users\HP\eclipse-workspace\Hope\UsedLibraries\hamcrest-core-1.3.jar"/>
+	        <pathelement location="./UsedLibraries/hamcrest-core-1.3.jar"/>
 	        <!--<pathelement location="./UsedLibraries/jacocoant.jar"/>-->
 	    </path>
 	    
 	        
 	    <target name="compile-testcases" depends="compile">
-	        <mkdir dir="${result.testclasses.dir}"/>
-	        <javac srcdir="${src.test.dir}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false">
+	        <mkdir dir="${result.Testclasses}"/>
+	        <javac srcdir="${src.Test.dir}"  destdir="${result.Testclasses}" debug="true" includeantruntime="false">
 	            <classpath>
 	                
 	                <path refid="NecessaryLibraries"/>
@@ -43,11 +43,11 @@
 	            <classpath>
 	                <path refid="NecessaryLibraries"></path>
 	                <pathelement location="${result.javaclasses.dir}"/>
-	                <pathelement location="${result.testclasses.dir}"/>
+	                <pathelement location="${result.Testclasses}"/>
 	            </classpath>
 	            <formatter type="brief" usefile="false"/>
 	            <batchtest >
-	                <fileset dir="${result.testclasses.dir}" >
+	                <fileset dir="${result.Testclasses}" >
 	                     <include name="**/*Test.class"/>
 	                </fileset>
 	            </batchtest>
