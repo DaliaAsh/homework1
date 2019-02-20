@@ -1,4 +1,4 @@
-package test;
+package dalia;
 
 import static org.junit.Assert.*;
 
